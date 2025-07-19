@@ -4,7 +4,7 @@ A real-time face recognition system that combines [YOLOv8-face](https://github.c
 
 ## 🎥 Demo
 
-![Demo](results/output_demo.gif)
+![Demo](results/short_output_video.gif)
 
 
 ## 🔥 Features
