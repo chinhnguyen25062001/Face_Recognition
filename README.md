@@ -2,6 +2,11 @@
 
 A real-time face recognition system that combines [YOLOv8-face](https://github.com/derronqi/yolov8-face) for face detection and [ArcFace](https://github.com/deepinsight/insightface) for robust face recognition. This project processes videos or webcam input and identifies known individuals with high accuracy.
 
+## 🎥 Demo
+
+![Demo](results/output_demo.gif)
+
+
 ## 🔥 Features
 - Real-time face detection using YOLOv8-face
 - Identity recognition using ArcFace
