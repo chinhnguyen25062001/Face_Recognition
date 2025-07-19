@@ -60,7 +60,7 @@ python add_person.py \
 Place your video as `input_video.mp4` and run:
 
 ```bash
-python run_inference.py
+python main.py
 ```
 
 This will generate an output video `output_video.mp4` with recognized face identities.
