@@ -1,4 +1,3 @@
-import time
 import cv2
 import numpy as np
 import argparse
@@ -180,9 +179,7 @@ class FaceRecognition:
                 print("Error: Could not open video.")
                 return
             list_output_frames = []
-            list_time_process = [[], [], [], []]
             while True:
-                start = time.time()
                 ret, frame = cap.read()
                 if not ret:
                     break  # Stop if video ends
@@ -220,29 +217,12 @@ class FaceRecognition:
                     output_image = cv2.putText(output_image, caption, cap_pos, cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2, cv2.LINE_AA)
                 self.previous_bboxes = current_bboxes
                 self.previous_names = current_names
-                end = time.time()
-                time_process = round(end-start,4)
-                # print(f'Total Time: {round(end-start,4)}, Detect: {round(start_recog-start_detect,4)}, Recognize: {round(end-start_recog,4)}')
-                if len(bb_results) <=2:
-                    list_time_process[0].append(time_process)
-                elif len(bb_results) <=5:
-                    list_time_process[1].append(time_process)
-                elif len(bb_results) <=10:
-                    list_time_process[2].append(time_process)
-                else:
-                    list_time_process[3].append(time_process)
-                print(f'Total Time: {time_process}')
                 list_output_frames.append(output_image)
 
             cap.release()
-            print(f'Total Time for 0 - 2 people: {round(sum(list_time_process[0])/len(list_time_process[0]), 4)}')
-            print(f'Total Time for 3 - 5 people: {round(sum(list_time_process[1])/len(list_time_process[1]), 4)}')
-            print(f'Total Time for 5 - 10 people: {round(sum(list_time_process[2])/len(list_time_process[2]), 4)}')
-            print(f'Total Time for more than 10 people: {round(sum(list_time_process[3])/len(list_time_process[3]), 4)}')
             return list_output_frames
         elif type_data == 'camera':
             cap = cv2.VideoCapture(0)
-            list_time_process = [[], [], [], []]
             while True:
                 ret, frame = cap.read()
                 if not ret:
@@ -282,8 +262,6 @@ class FaceRecognition:
                     output_image = cv2.putText(output_image, caption, cap_pos, cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2, cv2.LINE_AA)
                 self.previous_bboxes = current_bboxes
                 self.previous_names = current_names
-                end = time.time()
-                time_process = round(end-start,4)
                 # Display the captured frame
                 cv2.imshow('Camera', output_image)
                 # Press 'q' to exit the loop
