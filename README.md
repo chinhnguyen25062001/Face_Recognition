@@ -8,6 +8,11 @@ A real-time face recognition system that combines [YOLOv8-face](https://github.c
 
 👉 **Watch the full output video here:** [results/output_video.mp4](results/output_video.mp4)
 
+📌 **Note:** In the demo video, the system detects and recognizes 3 individuals from the face database:
+- `Seong_Gi_Hun`
+- `Front_Man`
+- `Director`
+
 ## 🔥 Features
 - Real-time face detection using YOLOv8-face
 - Identity recognition using ArcFace
